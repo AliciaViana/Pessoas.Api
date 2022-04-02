@@ -9,6 +9,7 @@ import com.mariaalicia.pessoasapi.modelo.PessoaRepositorio;
 
 @Service // signifca uma anotacao, gerencia
 public class PessoaServico {
+	private static final Object Pessoa = null;
 	@Autowired
 	PessoaRepositorio pessoaRepositorio;
 
@@ -28,5 +29,11 @@ public class PessoaServico {
 
 		return "o seu id é " + pessoaRepositorio.save(pessoa).getId();
 
+	}
+	public String carregaCargo(PessoaDTO pessoaDTO) {
+		return "o cargo é: " + pessoaRepositorio.save(Pessoa).getCargo();
+		
+		
+		
 	}
 }

@@ -15,9 +15,8 @@ import com.mariaalicia.pessoasapi.servico.PessoaServico;
 @RestController
 @RequestMapping("/pessoa")
 public class PessoaController {
-	@Autowired // faz da implementaçao da classe.
+	@Autowired 
 	PessoaServico pessoaServico;
-//nome classe(//o qe vem antes é sempre um tipo//)- nome implementacao - = - new - classe//instanciando a classe.
 
 	@PostMapping
 	public ResponseEntity<String> pegarNome(@RequestBody PessoaDTO pessoaDTO) {
