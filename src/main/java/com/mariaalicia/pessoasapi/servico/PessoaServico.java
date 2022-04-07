@@ -1,39 +1,41 @@
 package com.mariaalicia.pessoasapi.servico;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mariaalicia.pessoasapi.dto.PessoaDTO;
 import com.mariaalicia.pessoasapi.entidade.Pessoa;
 import com.mariaalicia.pessoasapi.modelo.PessoaRepositorio;
 
-@Service // signifca uma anotacao, gerencia
-public class PessoaServico {
-	private static final Object Pessoa = null;
-	@Autowired
-	PessoaRepositorio pessoaRepositorio;
+@Service public class PessoaServico {
+    final PessoaRepositorio pessoaRepositorio;
 
-	public String carregaNome(PessoaDTO pessoaDTO) {
+    public PessoaServico(PessoaRepositorio pessoaRepositorio) {
+        this.pessoaRepositorio = pessoaRepositorio;
+    }
 
-		Pessoa pessoa = new Pessoa();
+    public String carregaNome(PessoaDTO pessoaDTO) {
 
-		if (pessoaDTO.getNome().isEmpty()) {
-			return "o campo esta vazio";
+        Pessoa pessoa = new Pessoa();
 
-		}
-		if (pessoaDTO.getIdade() == 0) {
-			return "o campo idade esta vazio";
-		}
-		pessoa.setNome(pessoaDTO.getNome());
-		pessoa.setIdade(pessoaDTO.getIdade());
+        if (pessoaDTO.getNome().isEmpty()) {
+            return "o campo esta vazio";
 
-		return "o seu id é " + pessoaRepositorio.save(pessoa).getId();
+        }
+        if (pessoaDTO.getIdade() == 0) {
+            return "o campo idade esta vazio";
+        }
+        pessoa.setNome(pessoaDTO.getNome());
+        pessoa.setIdade(pessoaDTO.getIdade());
 
-	}
-	public String carregaCargo(PessoaDTO pessoaDTO) {
-		return "o cargo é: " + pessoaRepositorio.save(Pessoa).getCargo();
-		
-		
-		
-	}
+        return "o seu id é " + pessoaRepositorio.save(pessoa).getId();
+
+    }
+
+    public String carregaCargo(PessoaDTO pessoaDTO) {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(pessoaDTO.getNome());
+        pessoa.setIdade(pessoaDTO.getIdade());
+        pessoa.setCargo(pessoaDTO.getCargo());
+        return "o cargo é: " + pessoaRepositorio.save(pessoa).getCargo();
+    }
 }
