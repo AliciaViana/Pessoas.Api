@@ -1,4 +1,4 @@
-package com.mariaalicia.pessoasapi.dto;
+package com.mariaalicia.pessoasapi.core.pessoa;
 
 public class PessoaDTO {
 	private String nome;

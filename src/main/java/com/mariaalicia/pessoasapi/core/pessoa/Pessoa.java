@@ -1,11 +1,11 @@
-package com.mariaalicia.pessoasapi.entidade;
+package com.mariaalicia.pessoasapi.core.pessoa;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity // entidade
 public class Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
